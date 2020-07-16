@@ -4,19 +4,19 @@ environment:
     CMAKE_ARCHITECTURE: x64
     matrix:
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-		  CMAKE_GENERATOR: “Visual Studio 12 2013”
+          CMAKE_GENERATOR: “Visual Studio 12 2013”
           BUILD_SHARED: True
-		  
+        
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-		  CMAKE_GENERATOR: “Visual Studio 14 2015”
+          CMAKE_GENERATOR: “Visual Studio 14 2015”
           BUILD_SHARED: True
-		  
+        
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-		  CMAKE_GENERATOR: "Visual Studio 15 2017" 
+          CMAKE_GENERATOR: "Visual Studio 15 2017" 
           BUILD_SHARED: True
           
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-		  CMAKE_GENERATOR: "Visual Studio 16 2019" 
+          CMAKE_GENERATOR: "Visual Studio 16 2019" 
           BUILD_SHARED: True
 
 install:
