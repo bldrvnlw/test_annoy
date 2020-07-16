@@ -1,0 +1,3 @@
+[submodule "external/annoy"]
+	path = external/annoy
+	url = https://github.com/spotify/annoy

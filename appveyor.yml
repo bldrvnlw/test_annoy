@@ -1,0 +1,32 @@
+version: 1.0.{build}
+
+environment:
+    CMAKE_ARCHITECTURE: x64
+    matrix:
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
+		  CMAKE_GENERATOR: “Visual Studio 12 2013”
+          BUILD_SHARED: True
+		  
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+		  CMAKE_GENERATOR: “Visual Studio 14 2015”
+          BUILD_SHARED: True
+		  
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+		  CMAKE_GENERATOR: "Visual Studio 15 2017" 
+          BUILD_SHARED: True
+          
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+		  CMAKE_GENERATOR: "Visual Studio 16 2019" 
+          BUILD_SHARED: True
+
+install:
+  - git submodule update --init --recursive
+  
+before_build:
+  - cmd: cmake . -G "%CMAKE_GENERATOR%" -A "%CMAKE_ARCHITECTURE%" -DCMAKE_BUILD_TYPE=Release
+  
+build_script:
+  - cmd: cmake --build . --config Release
+  
+test_script:
+  - cmd: .\Release\test_annoy.exe
